@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@layer base{
+    body{
+        background-color: #e7eef6;
+        font-size: 14px;
+    }
+    .line:hover{
+       color: #f03248;
+    }
+    .line{
+        font-size: small;
+    }
+}
+@theme{
+    --default-font-family: "Roboto", sans-serif;
+}
