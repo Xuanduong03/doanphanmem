@@ -11,7 +11,7 @@ import lubel from '../assets/lubel.svg'
 function Footer() {
     return ( 
         <>
-        <div className='mt-[25px] bg-[#333333] text-white'>
+        <div className='pt-[25px] bg-[#333333] text-white'>
             <div className="py-[30px]">
             <div className='grid grid-cols-12 max-w-[1240px] m-auto'>
             <div className='col-span-4'>

@@ -6,7 +6,7 @@ import cart from '../assets/cart.svg'
 import { FaCaretDown } from "react-icons/fa";
 function Header() {
     return ( 
-        <header className="w-full bg-[#f03248] mb-[30px]">
+        <header className="w-full bg-[#f03248]">
         <div className="border-b border-b-[#fff6]">
             <div className="max-w-[1240px] m-auto flex items-center py-[25px] ]">
                 <a href="">
