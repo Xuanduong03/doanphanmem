@@ -3,6 +3,7 @@ import DefaultLayout from "./layouts/DefaultLayout"
 import Home from "./pages/Home"
 import Intro from "./pages/Intro"
 import Products from "./pages/Products"
+import ProductDetail from "./pages/ProductDetail"
 const router = createBrowserRouter([
   {
    path: '/',
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       path: '/products/all',
       element: <Products />
 
+    },
+    {
+      path: '/detail/:id',
+      element: <ProductDetail />
     }
    ]
   }
