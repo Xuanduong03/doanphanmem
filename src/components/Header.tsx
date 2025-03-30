@@ -56,7 +56,7 @@ function Header() {
                 <li className="p-[15px]"><a href=""> Giới thiệu</a></li>
                 <li className="p-[15px] group relative"><a href="" className="flex items-center gap-1.5"> Sản phẩm <FaCaretDown />
                 </a>
-                    <div className="opacity-0 invisible transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:visible absolute min-w-[900px] max-w-[1000px] bg-white text-black left-0 top-[100%] p-3 font-normal text-[14px] shadow-2xl">
+                    <div className="z-40 opacity-0 invisible transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:visible absolute min-w-[900px] max-w-[1000px] bg-white text-black left-0 top-[100%] p-3 font-normal text-[14px] shadow-2xl">
                         <div className="grid grid-cols-4 gap-6">
                             <div>
                                 <ul>
