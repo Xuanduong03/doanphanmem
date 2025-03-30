@@ -6,6 +6,7 @@ import Products from "./pages/Products"
 import ProductDetail from "./pages/ProductDetail"
 import Like from "./pages/Like"
 import Contact from "./pages/Contact"
+import Cart from "./pages/Cart"
 const router = createBrowserRouter([
   {
    path: '/',
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
     {
       path: '/contact',
       element: <Contact />
+    },
+    {
+      path: '/cart',
+      element: <Cart />
     }
    ]
   }

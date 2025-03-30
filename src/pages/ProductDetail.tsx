@@ -9,7 +9,8 @@ import { CiShoppingCart } from 'react-icons/ci';
 import { GoHeart } from 'react-icons/go';
 function ProductDetail() {
     return ( 
-        <div className="max-w-[1240px] m-auto pb-[25px]">
+       <div className='bg-[#e7eef6]'>
+         <div className="max-w-[1240px] m-auto pb-[25px]">
         <ul className='py-[15px] flex items-center gap-[10px]'>
    <li className='flex items-center gap-[10px]'>
        <a href="" className='text-[#2b2f3366] hover:text-[#f03248]'>Trang chủ</a>
@@ -313,6 +314,7 @@ function ProductDetail() {
                 </div>
             </div>
         </div>
+       </div>
        </div>
        </div>
      );

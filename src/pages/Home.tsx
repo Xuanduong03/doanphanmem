@@ -30,7 +30,8 @@ const categories = [
 function Home() {
     return ( 
       <>
-      <div className="w-[1240px] max-w-[1240px] m-auto mt-[30px]">
+     <div className='w-full h-full bg-[#e7eef6]'>
+     <div className="w-[1240px] max-w-[1240px] m-auto py-[30px]">
         <div className='flex gap-[25px]'>
         <div>
               <Category array={categories} title='Danh mục' img={menu} margin = {false} more = {true}/>
@@ -639,6 +640,7 @@ function Home() {
         </div>
        
         </div>
+     </div>
         
         
       </>

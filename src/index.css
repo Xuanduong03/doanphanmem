@@ -2,7 +2,6 @@
 
 @layer base{
     body{
-        background-color: #e7eef6;
         font-size: 14px;
     }
     .line:hover{
@@ -10,6 +9,10 @@
     }
     .line{
         font-size: small;
+    }
+    td,th{
+        padding: 10px;
+        text-align: center;
     }
 }
 @theme{
