@@ -5,6 +5,7 @@ import Intro from "./pages/Intro"
 import Products from "./pages/Products"
 import ProductDetail from "./pages/ProductDetail"
 import Like from "./pages/Like"
+import Contact from "./pages/Contact"
 const router = createBrowserRouter([
   {
    path: '/',
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     {
       path: '/like',
       element: <Like />
+    },
+    {
+      path: '/contact',
+      element: <Contact />
     }
    ]
   }
