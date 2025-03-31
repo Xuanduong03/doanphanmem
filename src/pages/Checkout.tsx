@@ -1,6 +1,7 @@
 import { FaUserAlt } from "react-icons/fa";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 function Checkout() {
     return ( 
        <div className="max-w-[1240px] m-auto">
@@ -11,10 +12,10 @@ function Checkout() {
                     <div className="col-span-6">
                         <div className="flex justify-between">
                             <h4 className="text-[#333] font-semibold text-[19px]">Thông tin nhận hàng</h4>
-                            <a href="" className="flex items-center gap-1 text-[#2a9dcc] hover:opacity-70">
+                            <Link to={'/login'} className="flex items-center gap-1 text-[#2a9dcc] hover:opacity-70">
                             <FaUserAlt />
                             Đăng nhập
-                            </a>
+                            </Link>
                         </div>
                         <form action="">
                             <input type="email" placeholder="Email" className="h-[44px] w-full outline-none bg-white border-1 border-[#d9d9d9] rounded-[4px] text-[#333] py-[13px] px-[11px] focus:border-[#2a9dcc] mt-[10px]"/>
@@ -125,7 +126,7 @@ function Checkout() {
                    <div className="flex items-center justify-between">
                     <div className="flex items-center gap-[2px] text-[#2a9dcc] hover:opacity-70 group">
                         <IoIosArrowBack fontSize={18} className="cursor-pointer group-hover:translate-x-[-5px] transition duration-400"/>
-                        <a href="" className="">Quay về giỏ hàng</a>
+                        <Link to={'/'} className="">Quay về giỏ hàng</Link>
                     </div>
                     <button className="py-[13px] px-[23px] bg-[#357ebd] ml-[15px] text-white rounded-[5px] hover:opacity-80 cursor-pointer uppercase">Đặt hàng</button>
                    </div>

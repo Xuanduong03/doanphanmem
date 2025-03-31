@@ -8,6 +8,8 @@ import Like from "./pages/Like"
 import Contact from "./pages/Contact"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 const router = createBrowserRouter([
   {
    path: '/',
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       path: '/cart',
       element: <Cart />
     },
+    {
+      path: '/login',
+      element: <Login />
+    },
+    {
+      path: '/register',
+      element: <Register />
+    }
    ]
   },
   {

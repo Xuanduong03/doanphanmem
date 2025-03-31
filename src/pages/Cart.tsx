@@ -1,4 +1,5 @@
 import arrow from '../assets/arrow.svg'
+import { Link } from 'react-router-dom';
 function Cart() {
     return ( 
         <div className="max-w-[1240px] m-auto pb-[25px]">
@@ -69,7 +70,7 @@ function Cart() {
             <p className='font-medium'>Tổng tiền: </p>
             <p className='font-bold text-[#f03248] text-[16px]'>2.040.000₫</p>
         </div>
-        <button className='w-full text-white bg-[#333] border-1 border-[#333] p-[10px] mt-[10px] cursor-pointer hover:bg-transparent hover:text-inherit'>Thanh toán</button>
+        <Link to={'/checkout'}><button className='w-full text-white bg-[#333] border-1 border-[#333] p-[10px] mt-[10px] cursor-pointer hover:bg-transparent hover:text-inherit'>Thanh toán</button></Link>
         </div>
     </div>
 </div>
