@@ -7,6 +7,7 @@ import ProductDetail from "./pages/ProductDetail"
 import Like from "./pages/Like"
 import Contact from "./pages/Contact"
 import Cart from "./pages/Cart"
+import Checkout from "./pages/Checkout"
 const router = createBrowserRouter([
   {
    path: '/',
@@ -40,8 +41,12 @@ const router = createBrowserRouter([
     {
       path: '/cart',
       element: <Cart />
-    }
+    },
    ]
+  },
+  {
+    path: '/checkout',
+    element: <Checkout />
   }
 ])
 function App() {
