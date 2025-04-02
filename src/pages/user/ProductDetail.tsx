@@ -1,5 +1,5 @@
-import arrow from '../assets/arrow.svg'
-import share from '../assets/share.svg'
+import arrow from '../../assets/arrow.svg'
+import share from '../../assets/share.svg'
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaPinterestP } from "react-icons/fa6";

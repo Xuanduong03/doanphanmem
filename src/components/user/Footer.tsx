@@ -3,11 +3,11 @@ import { FaYoutube } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
-import phone from '../assets/phone.svg'
-import zalo from '../assets/zalo.svg'
-import email from '../assets/email.svg'
-import mess from '../assets/mess.svg'
-import lubel from '../assets/lubel.svg'
+import phone from '../../assets/phone.svg'
+import zalo from '../../assets/zalo.svg'
+import email from '../../assets/email.svg'
+import mess from '../../assets/mess.svg'
+import lubel from '../../assets/lubel.svg'
 function Footer() {
     return ( 
         <>

@@ -1,4 +1,4 @@
-import arrow from '../assets/arrow.svg'
+import arrow from '../../assets/arrow.svg'
 import { CiShoppingCart } from 'react-icons/ci';
 import { GoHeart } from "react-icons/go";
 function Like() {

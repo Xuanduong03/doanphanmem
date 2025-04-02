@@ -1,5 +1,5 @@
 import { CiShoppingCart } from 'react-icons/ci';
-import arrow from '../assets/arrow.svg'
+import arrow from '../../assets/arrow.svg'
 import { IoIosArrowDown } from "react-icons/io";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { GoHeart } from "react-icons/go";

@@ -1,15 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import DefaultLayout from "./layouts/DefaultLayout"
-import Home from "./pages/Home"
-import Intro from "./pages/Intro"
-import Products from "./pages/Products"
-import ProductDetail from "./pages/ProductDetail"
-import Like from "./pages/Like"
-import Contact from "./pages/Contact"
-import Cart from "./pages/Cart"
-import Checkout from "./pages/Checkout"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
+import Home from "./pages/user/Home"
+import Intro from "./pages/user/Intro"
+import Products from "./pages/user/Products"
+import ProductDetail from "./pages/user/ProductDetail"
+import Like from "./pages/user/Like"
+import Contact from "./pages/user/Contact"
+import Cart from "./pages/user/Cart"
+import Checkout from "./pages/user/Checkout"
+import Login from "./pages/user/Login"
+import Register from "./pages/user/Register"
+import DefaultLayoutAdmin from "./layouts/DefaultLayoutAdmin"
+import Dashboard from "./pages/admin/Dashboard"
 const router = createBrowserRouter([
   {
    path: '/',
@@ -57,7 +59,18 @@ const router = createBrowserRouter([
   {
     path: '/checkout',
     element: <Checkout />
+  },
+  {
+    path: '/admin',
+    element: <DefaultLayoutAdmin />,
+    children: [
+      {
+        path: 'dashboard',
+        element: <Dashboard />
+      }
+    ]
   }
+
 ])
 function App() {
   return (

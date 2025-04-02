@@ -1,8 +1,8 @@
-import menu from '../assets/menu.svg'
-import search from '../assets/search2.svg'
-import Category from '../components/Category';
-import Trend from '../components/Trend';
-import arrow from '../assets/arrows2.svg'
+import menu from '../../assets/menu.svg'
+import search from '../../assets/search2.svg'
+import Category from '../../components/user/Category';
+import Trend from '../../components/user/Trend';
+import arrow from '../../assets/arrows2.svg'
 import { CiShoppingCart } from "react-icons/ci";
 const categories = [
     { name: 'Đồ Chơi - Mẹ & Bé', children: [] },

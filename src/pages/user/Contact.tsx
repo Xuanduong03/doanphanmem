@@ -1,7 +1,7 @@
-import arrow from '../assets/arrow.svg'
-import location from '../assets/location.svg'
-import email from '../assets/email2.svg'
-import phone from '../assets/phone2.svg'
+import arrow from '../../assets/arrow.svg'
+import location from '../../assets/location.svg'
+import email from '../../assets/email2.svg'
+import phone from '../../assets/phone2.svg'
 function Contact() {
     return ( 
         <div className="max-w-[1240px] m-auto pb-[25px]">

@@ -1,8 +1,8 @@
-import logo from "../assets/logo.svg"
-import search from '../assets/search.svg'
-import heart from '../assets/heart.svg'
-import user from '../assets/user.svg'
-import cart from '../assets/cart.svg'
+import logo from "../../assets/logo.svg"
+import search from '../../assets/search.svg'
+import heart from '../../assets/heart.svg'
+import user from '../../assets/user.svg'
+import cart from '../../assets/cart.svg'
 import { FaCaretDown } from "react-icons/fa";
 import { Link } from "react-router-dom"
 function Header() {

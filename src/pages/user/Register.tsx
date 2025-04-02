@@ -1,4 +1,4 @@
-import arrow from '../assets/arrow.svg'
+import arrow from '../../assets/arrow.svg'
 import { Link } from 'react-router-dom';
 function Register() {
     return ( 

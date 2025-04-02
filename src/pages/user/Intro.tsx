@@ -1,4 +1,4 @@
-import arrow from '../assets/arrow.svg'
+import arrow from '../../assets/arrow.svg'
 function Intro() {
     return ( 
         <div className='bg-white h-full w-full'>
