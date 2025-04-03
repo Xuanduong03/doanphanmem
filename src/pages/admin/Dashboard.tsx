@@ -1,153 +1,80 @@
-import { useState } from "react";
-import Pagination from "../../components/admin/Pagination";
+import React from "react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+
 const Dashboard = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState("all");
-  const [action, setAction] = useState("");
-  const [products, setProducts] = useState([
-    { id: 1, image: "https://images-na.ssl-images-amazon.com/images/I/61nlT53kRKL._SL1500_.jpg", title: "Sản phẩm A", price: 100000, order: 1, status: "active" },
-    { id: 2, image: "https://m.media-amazon.com/images/I/6142PPCdOYL._SL1500_.jpg", title: "Sản phẩm B", price: 200000, order: 2, status: "inactive" },
-    { id: 3, image: "https://images-na.ssl-images-amazon.com/images/I/61nlT53kRKL._SL1500_.jpg", title: "Sản phẩm C", price: 300000, order: 3, status: "active" },
-  ]);
+  const data = [
+    { name: "Jan", revenue: 4000 },
+    { name: "Feb", revenue: 3000 },
+    { name: "Mar", revenue: 5000 },
+    { name: "Apr", revenue: 7000 },
+    { name: "May", revenue: 6000 },
+  ];
 
-  const handleDelete = (id : number): void => {
-    setProducts(products.filter((product) => product.id !== id));
-  };
   return (
-    <div className="bg-white p-6 w-full shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-6 text-gray-700">Danh sách sản phẩm</h2>
-      <div className="flex items-center">
-       <div className="flex gap-[50px] items-center">
-         {/* Bộ lọc bằng nút bấm */}
-      <div className="flex space-x-2">
-        <button
-          className={`px-5 py-2 rounded-lg transition ${
-            statusFilter === "all"
-              ? "bg-blue-600 text-white shadow-md"
-              : "bg-gray-200 hover:bg-gray-300"
-          }`}
-          onClick={() => setStatusFilter("all")}
-        >
-          Tất cả
-        </button>
-        <button
-          className={`px-5 py-2 rounded-lg transition ${
-            statusFilter === "active"
-              ? "bg-green-600 text-white shadow-md"
-              : "bg-gray-200 hover:bg-gray-300"
-          }`}
-          onClick={() => setStatusFilter("active")}
-        >
-          Hoạt động
-        </button>
-        <button
-          className={`px-5 py-2 rounded-lg transition ${
-            statusFilter === "inactive"
-              ? "bg-red-600 text-white shadow-md"
-              : "bg-gray-200 hover:bg-gray-300"
-          }`}
-          onClick={() => setStatusFilter("inactive")}
-        >
-          Dừng hoạt động
-        </button>
-      </div>
-      {/* Chọn hành động */}
-      <div className="relative mr-[50px]">
-        <select
-          className="mr-[5px] px-4 py-2 rounded-lg bg-white text-gray-700 shadow-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none"
-          value={action}
-          onChange={(e) => setAction(e.target.value)}
-        >
-          <option value="" disabled selected>---- Chọn hành động ---</option>
-          <option value="activate">Hoạt động</option>
-          <option value="deactivate">Dừng hoạt động</option>
-          <option value="delete">Xóa tất cả</option>
-          <option value="reorder">Thay đổi vị trí</option>
-        </select>
-        <button
-          className="px-5 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
-        >
-          Áp dụng
-        </button>
-      </div>
-       </div>
-        {/* Chọn danh mục */}
-      <div className="relative">
-        <select
-          className="mr-[5px] px-4 py-2 rounded-lg bg-white text-gray-700 shadow-md border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none"
-        >
-          <option value="" disabled selected>---- Chọn danh mục ---</option>
-          <option value="activate">Vị trí giảm dần</option>
-          <option value="deactivate">Vị trí tăng dần</option>
-          <option value="delete">Giá giảm dần</option>
-          <option value="reorder">Giá tăng dần</option>
-          <option value="reorder">Tiêu đề A - Z</option>
-          <option value="reorder">Tiêu đề Z - A</option>
-        </select>
-        <button
-          className="px-5 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition"
-        >
-          Xóa
-        </button>
-      </div>
-       <a href="" className="px-5 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition ml-auto">Thêm mới sản phẩm</a>
+    <div className="p-6 bg-gray-100 min-h-screen w-full">
+      <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
+
+     <div className="flex w-full gap-[40px]">
+      <div>
+         {/* Thống kê tổng quan */}
+       <div className="grid grid-cols-4 gap-4 mb-6">
+        {[
+          { title: "Danh mục", value: 12 },
+          { title: "Sản phẩm", value: 320 },
+          { title: "Đơn hàng", value: 145 },
+          { title: "Doanh thu", value: "$24,000" },
+        ].map((item, index) => (
+          <div key={index} className="p-4 bg-white rounded-lg shadow-md text-center">
+            <h3 className="text-lg font-semibold text-gray-700">{item.title}</h3>
+            <p className="text-xl font-bold text-blue-600">{item.value}</p>
+          </div>
+        ))}
       </div>
 
-
-      
-      {/* Bảng sản phẩm */}
-      <div className="overflow-x-auto mt-[20px]">
-        <table className="w-full border-collapse border border-gray-200 shadow-md">
+      {/* Biểu đồ doanh thu */}
+      <div className="p-6 bg-white rounded-lg shadow-md mb-6">
+        <h3 className="text-lg font-semibold mb-4">Biểu đồ doanh thu</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={data}>
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="revenue" fill="#3182CE" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+      </div>
+       {/* Danh sách đơn hàng gần đây */}
+       <div className="p-6 bg-white rounded-lg shadow-md">
+        <h3 className="text-lg font-semibold mb-4">Đơn hàng gần đây</h3>
+        <table className="w-full border-collapse border border-gray-200">
           <thead className="bg-gray-100">
             <tr>
-              <th className="p-3">
-                <input type="checkbox" />
-              </th>
-              <th className="p-3">STT</th>
-              <th className="p-3">Hình ảnh</th>
-              <th className="p-3">Tiêu đề</th>
-              <th className="p-3">Giá</th>
-              <th className="p-3">Số TT</th>
-              <th className="p-3">Trạng thái</th>
-              <th className="p-3">Hành động</th>
+              <th className="p-3 border">Mã đơn</th>
+              <th className="p-3 border">Khách hàng</th>
+              <th className="p-3 border">Tổng tiền</th>
+              <th className="p-3 border">Trạng thái</th>
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
-              <tr key={product.id} className="text-center hover:bg-gray-50">
-                <td className="border-t border-gray-200 p-3">
-                  <input type="checkbox" />
-                </td>
-                <td className="border-t border-gray-200 p-3">{index + 1}</td>
-                <td className="border-t border-gray-200 p-3">
-                  <img src={product.image} alt="Sản phẩm" className="w-22 h-22 object-contain rounded inline-block" />
-                </td>
-                <td className="border-t border-gray-200 p-3">{product.title}</td>
-                <td className="border-t border-gray-200 p-3 text-blue-600 font-semibold">
-                  {product.price.toLocaleString()} đ
-                </td>
-                <td className="border-t border-gray-200 p-3">
-                  <input type="number" defaultValue={product.order} className="w-16 p-1 border rounded text-center" />
-                </td>
-                <td className="border-t border-gray-200 p-3">
-                  <span className={`px-3 py-1 rounded-lg text-white text-sm ${product.status === "active" ? "bg-green-500" : "bg-red-500"}`}>
-                    {product.status === "active" ? "Hoạt động" : "Dừng hoạt động"}
+            {["#1234", "#5678", "#9101"].map((id, index) => (
+              <tr key={index} className="text-center hover:bg-gray-50">
+                <td className="border p-3">{id}</td>
+                <td className="border p-3">Nguyễn Văn A</td>
+                <td className="border p-3">$200</td>
+                <td className="border p-3">
+                  <span className="px-3 py-1 bg-green-500 text-white rounded-lg text-sm">
+                    Hoàn thành
                   </span>
-                </td>
-                <td className="border-t border-gray-200 p-3 space-x-2">
-                  <button className="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">
-                    Sửa
-                  </button>
-                  <button onClick={() => handleDelete(product.id)} className="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600">
-                    Xóa
-                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <Pagination />
+     </div>
+
+     
     </div>
   );
 };
