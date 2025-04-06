@@ -1,0 +1,15 @@
+const express = require("express");
+const database = require("./config/database");
+require("dotenv").config();
+const cors = require("cors");
+const routerAdmin = require("./routes/admin/index.router");
+var methodOverride = require("method-override");
+var bodyParser = require("body-parser");
+const app = express();
+database.connect();
+app.use(cors());
+app.use(methodOverride("_method"));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
+routerAdmin(app);
+app.listen(process.env.PORT);
