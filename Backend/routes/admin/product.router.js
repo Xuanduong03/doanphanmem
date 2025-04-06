@@ -17,4 +17,7 @@ router.patch("/change-multi", controller.changeMulti);
 router.patch("/change-status", controller.changeStatus);
 router.get("/create", controller.create);
 router.post("/createPost", upload.single("image"), controller.createPost);
+router.patch("/update/:id", upload.single("image"), controller.updatePatch);
+router.get("/detail/:id", controller.update);
+router.patch("/delete/:id", controller.delete);
 module.exports = router;

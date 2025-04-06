@@ -116,7 +116,6 @@ const Products = () => {
    if(products.length > 0) {
     if(selectedProduct.length === products.length){
       setSelectAll(true)
-      console.log(selectedProduct, products)
     }
     else{
       setSelectAll(false)
@@ -146,8 +145,24 @@ const Products = () => {
     fetchData()
   }, [])
 
-  const handleDelete = (id : number): void => {
-    setProducts(products.filter((product) => product.id !== id));
+  const handleDelete = async(id : string): void => {
+    if (!window.confirm("Bạn có chắc muốn xóa sản phẩm này không?")) return;
+    try {
+      const res = await fetch(`http://localhost:3000/admin/products/delete/${id}`, {
+        method: "PATCH",
+      });
+  
+      const result = await res.json();
+        if(result.status === 'success'){
+          notifySuccess(result.message)
+          setProducts(result.products)
+        }
+        if(result.status === 'error') {
+          notifyError(result.message)
+        }
+    } catch (err) {
+      notifyError("Lỗi khi xóa sản phẩm");
+    }
   };
   const handleCategorys = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectValue(event.target.value)
@@ -288,12 +303,12 @@ const Products = () => {
                     </span>
                   </td>
                   <td className="border-t border-gray-200 p-3 space-x-2">
-                    <Link to={'/admin/update_product'} className="inline-block px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">
+                    <Link to={`/admin/detail/${product._id}`} className="inline-block px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">
                       Sửa
                     </Link>
-                    <Link to={'/admin/delete_product'} onClick={() => handleDelete(product.id)} className="inline-block px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600">
+                    <button onClick={() => handleDelete(product._id)} className="inline-block px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600">
                       Xóa
-                    </Link>
+                    </button>
                   </td>
                 </tr>
               ))

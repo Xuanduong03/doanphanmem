@@ -144,7 +144,6 @@ module.exports.changeMulti = async (req, res) => {
       break;
   }
 };
-
 module.exports.changeStatus = async (req, res) => {
   let find = {
     deleted: false,
@@ -214,6 +213,68 @@ module.exports.createPost = async (req, res) => {
     res.status(400).json({
       status: "error",
       message: "Lỗi khi thêm sản phẩm",
+    });
+  }
+};
+module.exports.update = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  const productDetail = await productModel.findOne(
+    { _id: id },
+    {
+      deleted: false,
+    }
+  );
+  res.status(200).json(productDetail);
+};
+module.exports.updatePatch = async (req, res) => {
+  const id = req.params.id;
+  const { image } = req.body;
+  const countProduct = await productModel.countDocuments({});
+  req.body.price = parseInt(req.body.price);
+  req.body.discountPercentage = parseInt(req.body.discountPercentage);
+  req.body.stock = parseInt(req.body.stock);
+  if (!req.body.position) {
+    req.body.position = parseInt(countProduct) + 1;
+  }
+  if (image) {
+    const base64Data = image.replace(/^data:image\/(png|jpeg|jpg);base64,/, ""); // Xử lý base64
+    const buffer = Buffer.from(base64Data, "base64");
+    req.body.thumbnail = await upload(buffer);
+  }
+  try {
+    await productModel.updateOne({ _id: id }, req.body);
+    res.status(200).json({
+      status: "success",
+      message: "Sửa thành công 1 sản phẩm",
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "error",
+      message: "Lỗi khi sửa sản phẩm",
+    });
+  }
+};
+module.exports.delete = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await productModel.updateOne(
+      { _id: id },
+      {
+        deleted: true,
+      }
+    );
+
+    const products = await productModel.find({ deleted: false });
+    res.status(200).json({
+      status: "success",
+      message: "Xóa thành công 1 sản phẩm",
+      products: products,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "error",
+      message: "Lỗi khi xóa sản phẩm",
     });
   }
 };
